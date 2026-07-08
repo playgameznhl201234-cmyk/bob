@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="600" viewBox="0 0 480 600" role="img" aria-label="Placeholder after photo">
+  <rect width="480" height="600" fill="#efe7d7"/>
+  <circle cx="240" cy="225" r="60" fill="#1d6fa5" opacity="0.4"/>
+  <path d="M140 455c0-60 46-98 100-98s100 38 100 98v23H140z" fill="#1d6fa5" opacity="0.4"/>
+  <circle cx="292" cy="180" r="13" fill="#2fd5c8" opacity="0.9"/>
+  <text x="240" y="530" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#51626d">After — placeholder</text>
+  <text x="240" y="560" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#51626d">Swap with a real photo</text>
+</svg>

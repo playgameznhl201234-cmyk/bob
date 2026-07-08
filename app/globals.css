@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand palette — sampled from the PainFreeDiana logo */
+  --color-brand: #1d6fa5; /* deep ocean blue */
+  --color-brand-deep: #15577f;
+  --color-brand-ink: #12303f;
+  --color-teal: #2fd5c8; /* bright turquoise — decorative accents only */
+  --color-teal-deep: #0f8c81;
+  --color-teal-ink: #0b6e66; /* accessible teal for text on cream */
+  --color-cream: #f8f3ea; /* warm cream page background */
+  --color-cream-deep: #efe7d7;
+  --color-ink: #22333e; /* body text */
+  --color-ink-soft: #51626d; /* secondary text */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-lora);
+  --font-body: var(--font-raleway);
+  --font-script: var(--font-dancing);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-teal);
+  color: var(--color-brand-ink);
+}
+
+/* Auto-scrolling testimonial strip */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 55s linear infinite;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  /* the track is duplicated for the seamless loop — show one copy when static */
+  .marquee-track li[aria-hidden="true"] {
+    display: none;
+  }
 }

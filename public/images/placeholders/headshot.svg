@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="560" viewBox="0 0 480 560" role="img" aria-label="Placeholder headshot">
+  <rect width="480" height="560" fill="#efe7d7"/>
+  <circle cx="240" cy="210" r="70" fill="#1d6fa5" opacity="0.35"/>
+  <path d="M120 430c0-66 54-108 120-108s120 42 120 108v20H120z" fill="#1d6fa5" opacity="0.35"/>
+  <circle cx="300" cy="160" r="16" fill="#2fd5c8" opacity="0.8"/>
+  <text x="240" y="500" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#51626d">Headshot placeholder</text>
+  <text x="240" y="530" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#51626d">Swap with a photo of Diana</text>
+</svg>
