@@ -6,8 +6,11 @@ import HowItWorks from "@/components/HowItWorks";
 import Services from "@/components/Services";
 import Results from "@/components/Results";
 import About from "@/components/About";
+import FAQ from "@/components/FAQ";
 import Consultation from "@/components/Consultation";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
+import StickyBookBar from "@/components/StickyBookBar";
 import { siteConfig } from "@/lib/config";
 import { getGoogleRating } from "@/lib/google-reviews";
 
@@ -45,6 +48,7 @@ export default async function Home() {
       >
         Skip to main content
       </a>
+      <ScrollProgress />
       <Header />
       <main id="main">
         <Hero googleRating={googleRating} />
@@ -54,9 +58,11 @@ export default async function Home() {
         <Services />
         <Results />
         <About />
+        <FAQ />
         <Consultation />
       </main>
       <Footer />
+      <StickyBookBar />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
