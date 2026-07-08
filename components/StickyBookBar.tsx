@@ -10,29 +10,37 @@ import { motion, AnimatePresence } from "motion/react";
  */
 export default function StickyBookBar() {
   const [pastHero, setPastHero] = useState(false);
-  const [contactVisible, setContactVisible] = useState(false);
+  const [endVisible, setEndVisible] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setPastHero(window.scrollY > 600);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const contact = document.querySelector("#contact");
-    let observer: IntersectionObserver | undefined;
-    if (contact) {
-      observer = new IntersectionObserver(
-        (entries) => setContactVisible(entries[0].isIntersecting),
-        { rootMargin: "0px 0px -15% 0px" },
-      );
-      observer.observe(contact);
-    }
+    // Hide while the contact form or footer is on screen so the bar never
+    // covers the form or the legal text.
+    const targets = ["#contact", "#site-footer"]
+      .map((sel) => document.querySelector(sel))
+      .filter((el): el is Element => el !== null);
+    const visible = new Set<Element>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target);
+          else visible.delete(entry.target);
+        }
+        setEndVisible(visible.size > 0);
+      },
+      { rootMargin: "0px 0px -15% 0px" },
+    );
+    targets.forEach((el) => observer.observe(el));
     return () => {
       window.removeEventListener("scroll", onScroll);
-      observer?.disconnect();
+      observer.disconnect();
     };
   }, []);
 
-  const show = pastHero && !contactVisible;
+  const show = pastHero && !endVisible;
 
   return (
     <AnimatePresence>

@@ -80,12 +80,28 @@ export default function Hero({
               {googleRating.count} review{googleRating.count === 1 ? "" : "s"}
             </a>
           ) : (
-            /* PLACEHOLDER: shown until Google reviews are connected via
-               GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID (see README.md) —
-               either connect them or replace this line with real numbers */
+            /* Shown until Google reviews are connected via
+               GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID (see README.md) — the
+               real star rating and review count replace this automatically. */
             <p className="mt-8 flex items-center justify-center gap-2 text-sm font-medium text-ink-soft">
-              <Stars />
-              5.0 on Google · 40+ reviews
+              <span
+                className="flex h-5 w-5 items-center justify-center rounded-full bg-teal/20 text-teal-ink"
+                aria-hidden="true"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </span>
+              Free consultation · No pressure, no commitment
             </p>
           )}
         </Reveal>

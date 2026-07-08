@@ -141,7 +141,7 @@ export default function Results() {
                     title={`Client result video ${i + 1} from Instagram`}
                     loading="lazy"
                     allow="encrypted-media"
-                    className="h-[480px] w-full rounded-2xl border border-ink/10 bg-white shadow-sm"
+                    className="h-[560px] w-full rounded-2xl border border-ink/10 bg-white shadow-sm"
                   />
                 </Reveal>
               ))}

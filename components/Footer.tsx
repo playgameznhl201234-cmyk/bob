@@ -12,7 +12,7 @@ const NAV_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-ink text-cream">
+    <footer id="site-footer" className="bg-brand-ink text-cream">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
@@ -137,9 +137,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-cream/15 pt-6 text-center text-xs text-cream/60">
-          © {new Date().getFullYear()} <BrandName tone="light" /> ·{" "}
-          {siteConfig.trainerName} · {siteConfig.location}
+        <div className="mt-12 border-t border-cream/15 pt-6 text-center">
+          <p className="text-xs text-cream/60">
+            © {new Date().getFullYear()} <BrandName tone="light" /> ·{" "}
+            {siteConfig.trainerName} · {siteConfig.location} · All rights
+            reserved.
+          </p>
+          <p className="mx-auto mt-3 max-w-2xl text-xs leading-relaxed text-cream/45">
+            The content on this website is provided for general information
+            only and is not medical advice. Always consult a qualified health
+            professional before beginning any new exercise program.
+          </p>
         </div>
       </div>
     </footer>
