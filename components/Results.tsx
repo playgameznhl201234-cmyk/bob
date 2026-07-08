@@ -5,7 +5,11 @@ import BeforeAfter from "./BeforeAfter";
    (e.g. "https://www.instagram.com/reel/ABC123xyz/"). Each renders as an
    embedded playable video below the results grid. Leave empty to hide the
    video row entirely. */
-const INSTAGRAM_VIDEOS: string[] = [];
+const INSTAGRAM_VIDEOS: string[] = [
+  "https://www.instagram.com/p/DYkSHR8P9ws/",
+  "https://www.instagram.com/p/DX4ID2YvqSy/",
+  "https://www.instagram.com/p/DXmVl1Fj0Oc/",
+];
 
 function toEmbedUrl(url: string) {
   return url.replace(/\/+$/, "") + "/embed/";
