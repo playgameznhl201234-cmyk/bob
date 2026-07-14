@@ -60,7 +60,7 @@ export default function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
       <FigureMark className="h-9 w-auto shrink-0 text-teal" />
       <span className="flex items-baseline gap-2">
         <span
-          className={`font-body text-lg font-extrabold uppercase tracking-wider ${
+          className={`whitespace-nowrap font-body text-lg font-extrabold uppercase tracking-wider ${
             tone === "light" ? "text-cream" : "text-brand"
           }`}
         >

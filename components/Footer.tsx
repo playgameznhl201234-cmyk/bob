@@ -3,11 +3,13 @@ import BrandName from "./BrandName";
 import { siteConfig } from "@/lib/config";
 
 const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#results", label: "Results" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/#services", label: "Services" },
+  { href: "/#results", label: "Results" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy policy" },
+  { href: "/terms", label: "Terms & conditions" },
 ];
 
 export default function Footer() {
@@ -141,7 +143,14 @@ export default function Footer() {
           <p className="text-xs text-cream/60">
             © {new Date().getFullYear()} <BrandName tone="light" /> ·{" "}
             {siteConfig.trainerName} · {siteConfig.location} · All rights
-            reserved.
+            reserved. ·{" "}
+            <a href="/privacy" className="underline hover:text-teal">
+              Privacy
+            </a>{" "}
+            ·{" "}
+            <a href="/terms" className="underline hover:text-teal">
+              Terms
+            </a>
           </p>
           <p className="mx-auto mt-3 max-w-2xl text-xs leading-relaxed text-cream/45">
             The content on this website is provided for general information

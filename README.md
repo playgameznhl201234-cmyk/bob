@@ -14,36 +14,45 @@ npm run dev
 
 Open http://localhost:3000.
 
-## Connect the contact form (Formspree)
+## Contact form → email (FormSubmit, no account needed)
 
-The form posts to Formspree — no backend or API keys in this repo.
+The form emails submissions straight to **painfreediana@gmail.com** via
+[FormSubmit.co](https://formsubmit.co) — no account, no API key.
 
-1. Create a free account at [formspree.io](https://formspree.io) **using
-   painfreediana@gmail.com** (submissions are delivered to the account email,
-   or any address you verify in the dashboard).
-2. Click **New form**, name it (e.g. "Consultation requests"), and copy the
-   form ID from its endpoint — the `abcdwxyz` part of
-   `https://formspree.io/f/abcdwxyz`.
-3. Create a file called `.env.local` in the project root (copy
-   `.env.example`) and set:
+**One-time activation:** the first submission triggers an email to
+painfreediana@gmail.com from FormSubmit with an **Activate** button. Click
+it once, and every submission after that is delivered automatically.
 
-   ```
-   NEXT_PUBLIC_FORMSPREE_ID=abcdwxyz
-   ```
+If delivery ever fails (before activation, network hiccup, service down),
+the form automatically falls back to opening the visitor's own email app
+with the message pre-addressed and pre-filled — no request is ever lost.
 
-4. On Vercel, add the same variable under
-   **Project → Settings → Environment Variables**, then redeploy.
+To change the destination address, edit `email` in
+[`lib/config.ts`](lib/config.ts). To switch providers later (Resend, custom
+API route, etc.), the only code that touches FormSubmit is the `fetch` call
+in [`components/ContactForm.tsx`](components/ContactForm.tsx).
 
-Until the ID is set, the form falls back to opening the visitor's own email
-app with a message pre-addressed to painfreediana@gmail.com and all their
-answers filled in — submissions still arrive, nothing silently disappears.
-(Formspree is still worth setting up: the mailto fallback depends on the
-visitor having an email app configured and pressing send.)
+## Set up direct booking (Google Calendar + Zoom)
 
-Want to switch providers later (Resend, a custom API route, etc.)? The only
-files that touch Formspree are [`lib/config.ts`](lib/config.ts) and the
-`fetch` call in
-[`components/ContactForm.tsx`](components/ContactForm.tsx).
+Let clients pick a consultation slot themselves:
+
+1. Sign in to [Google Calendar](https://calendar.google.com) as
+   painfreediana@gmail.com → **Create → Appointment schedule**.
+2. Name it "Free consultation (30 min)", set the weekly availability.
+3. For Zoom: paste Diana's personal Zoom meeting room link into the
+   schedule's **Location** field (free Gmail accounts otherwise default to
+   Google Meet, which also works fine).
+4. Open the schedule → **Share → Open booking page**, copy the link.
+5. Paste it as `bookingUrl` in [`lib/config.ts`](lib/config.ts) — a
+   "book your consultation time directly" link appears under the contact
+   form automatically.
+
+## Legal pages
+
+`/privacy` and `/terms` are drafted to match how the site actually works
+(form → email, Instagram embeds, no tracking cookies) and linked in the
+footer. **Have them reviewed by a legal professional before launch**, and
+update them if you add analytics or other services.
 
 ## Connect Google reviews
 
@@ -111,7 +120,7 @@ the project for `PLACEHOLDER` to find them all:
 | Production domain (social previews, sitemap, structured data) | `app/layout.tsx` (`metadataBase`) + `lib/config.ts` (`url`) |
 | Social share image (auto-generated from brand fonts) | `app/opengraph-image.tsx` |
 
-Contact details, social links, and the Formspree ID all live in
+Contact details, social links, and the booking URL all live in
 [`lib/config.ts`](lib/config.ts).
 
 When you replace the placeholder SVGs with real photos (`.jpg`/`.webp`),
@@ -124,6 +133,6 @@ for automatic optimization, and delete the visible "Placeholder" badges.
 1. Push this folder to a GitHub repo.
 2. In [vercel.com](https://vercel.com), **Add New → Project**, import the
    repo — Next.js is auto-detected, no settings needed.
-3. Add the `NEXT_PUBLIC_FORMSPREE_ID` environment variable (see above).
+3. (Optional) Add the Google reviews environment variables (see above).
 4. Deploy, then attach the custom domain under **Settings → Domains** and
    update `metadataBase` in `app/layout.tsx` to match.

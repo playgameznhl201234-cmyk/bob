@@ -25,7 +25,7 @@ const TIMES = [
   "Flexible — whatever works",
 ];
 
-type Status = "idle" | "sending" | "success" | "mailto" | "error";
+type Status = "idle" | "sending" | "success" | "mailto";
 
 const inputClasses =
   "w-full rounded-lg border border-ink/20 bg-white px-4 py-3 text-base text-ink placeholder:text-ink-soft/60 focus:border-brand focus:outline-2 focus:outline-offset-1 focus:outline-brand/40";
@@ -48,7 +48,6 @@ function buildMailtoUrl(data: FormData) {
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const [errorMessage, setErrorMessage] = useState("");
   const [firstName, setFirstName] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -56,40 +55,32 @@ export default function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
     setFirstName(String(data.get("name") ?? "").trim().split(" ")[0]);
-
-    // Without a Formspree ID, fall back to the visitor's own email app —
-    // the message is pre-addressed to painfreediana@gmail.com with all the
-    // form answers filled in, so submissions still arrive.
-    if (!siteConfig.formspreeId || siteConfig.formspreeId === "YOUR_FORM_ID") {
-      window.location.href = buildMailtoUrl(data);
-      setStatus("mailto");
-      return;
-    }
-
     setStatus("sending");
+
+    // Submissions are emailed to siteConfig.email via FormSubmit.co (no
+    // account required — see lib/config.ts). If delivery fails for any
+    // reason, fall back to opening the visitor's own email app with the
+    // message pre-addressed and pre-filled, so no request is ever lost.
     try {
       const response = await fetch(
-        `https://formspree.io/f/${siteConfig.formspreeId}`,
+        `https://formsubmit.co/ajax/${siteConfig.email}`,
         {
           method: "POST",
           headers: { Accept: "application/json" },
           body: data,
         },
       );
-      if (response.ok) {
+      const result = await response.json().catch(() => null);
+      if (response.ok && result && `${result.success}` === "true") {
         setStatus("success");
         form.reset();
       } else {
-        const body = await response.json().catch(() => null);
-        setStatus("error");
-        setErrorMessage(
-          body?.errors?.[0]?.message ??
-            "Something went wrong sending your message.",
-        );
+        window.location.href = buildMailtoUrl(data);
+        setStatus("mailto");
       }
     } catch {
-      setStatus("error");
-      setErrorMessage("Network error — please check your connection.");
+      window.location.href = buildMailtoUrl(data);
+      setStatus("mailto");
     }
   }
 
@@ -140,7 +131,7 @@ export default function ContactForm() {
       className="rounded-2xl border border-ink/10 bg-white p-6 shadow-sm sm:p-8"
       aria-label="Book a free consultation"
     >
-      {/* Formspree extras: subject line for the notification email +
+      {/* FormSubmit extras: subject line for the notification email +
           honeypot field for spam protection */}
       <input
         type="hidden"
@@ -149,7 +140,7 @@ export default function ContactForm() {
       />
       <input
         type="text"
-        name="_gotcha"
+        name="_honey"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
@@ -323,22 +314,6 @@ export default function ContactForm() {
           </p>
         )}
 
-        {status === "error" && (
-          <p
-            role="alert"
-            className="rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-sm font-medium text-red-800"
-          >
-            {errorMessage} You can also email me directly at{" "}
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="font-semibold underline underline-offset-2"
-            >
-              {siteConfig.email}
-            </a>
-            .
-          </p>
-        )}
-
         <button
           type="submit"
           disabled={status === "sending"}
@@ -349,7 +324,14 @@ export default function ContactForm() {
 
         <p className="text-center text-xs leading-relaxed text-ink-soft">
           No spam, no sales pressure — your details are only used to get back
-          to you about the consultation.
+          to you about the consultation. See our{" "}
+          <a
+            href="/privacy"
+            className="underline underline-offset-2 hover:text-brand"
+          >
+            privacy policy
+          </a>
+          .
         </p>
       </div>
     </form>

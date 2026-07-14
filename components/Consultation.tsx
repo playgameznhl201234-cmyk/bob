@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import ContactForm from "./ContactForm";
+import { siteConfig } from "@/lib/config";
 
 const INCLUDED = [
   {
@@ -76,6 +77,19 @@ export default function Consultation() {
 
           <Reveal delay={100}>
             <ContactForm />
+            {siteConfig.bookingUrl && (
+              <p className="mt-5 text-center text-sm text-ink-soft">
+                Prefer to skip the form?{" "}
+                <a
+                  href={siteConfig.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-brand underline underline-offset-4 hover:text-brand-deep"
+                >
+                  Book your consultation time directly
+                </a>
+              </p>
+            )}
           </Reveal>
         </div>
       </div>
