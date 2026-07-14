@@ -117,7 +117,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="overflow-hidden border-t border-ink/10 bg-cream md:hidden"
+            className="absolute inset-x-0 top-full overflow-hidden border-b border-t border-ink/10 bg-cream shadow-lg md:hidden"
           >
             <div className="px-4 pb-6 pt-2">
               <ul>
