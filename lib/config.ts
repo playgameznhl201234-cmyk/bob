@@ -2,8 +2,8 @@
  * Central site configuration — edit contact details and service wiring here.
  */
 export const siteConfig = {
-  // PLACEHOLDER: swap in the real production domain once it's connected
-  // (used by sitemap.xml, robots.txt, and the LocalBusiness structured data)
+  // Live production domain (used by sitemap.xml, robots.txt, and the
+  // LocalBusiness structured data)
   url: "https://painfreediana.com",
   businessName: "PainFreeDiana",
   trainerName: "Diana Kovalenko",

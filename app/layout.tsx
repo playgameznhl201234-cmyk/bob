@@ -22,7 +22,6 @@ const dancing = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  // PLACEHOLDER: swap in the real production domain once it's connected
   metadataBase: new URL("https://painfreediana.com"),
   title: "PainFreeDiana | Personal Trainer in Saskatoon — Move Pain-Free",
   description:
