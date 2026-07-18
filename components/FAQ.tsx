@@ -27,6 +27,11 @@ const FAQS = [
     answer:
       "It depends on how often we train, so I cover exact numbers in the consultation — no pressure, no upselling.",
   },
+  {
+    question: "Where do sessions happen?",
+    answer:
+      "In person, in Saskatoon. Once you reach out, we'll text you the exact time and location details for your assessment.",
+  },
 ];
 
 function FaqItem({
