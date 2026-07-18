@@ -20,17 +20,12 @@ const FAQS = [
   {
     question: "What happens in the free consultation?",
     answer:
-      "Thirty minutes, in person in Saskatoon or over a video call: we talk through your pain history and goals, look at how you move, and you leave with an outline of what your first four weeks would look like — whether or not we end up working together.",
+      "Thirty minutes, in person in Saskatoon: we talk through your pain history and goals, look at how you move, and you leave with an outline of what your first four weeks would look like — whether or not we end up working together.",
   },
   {
     question: "How much does coaching cost?",
     answer:
-      "It depends on the format and how often we train, so I cover exact numbers in the consultation — no pressure, no upselling. Online programming is month to month with no minimum commitment.",
-  },
-  {
-    question: "Do you coach people who aren't in Saskatoon?",
-    answer:
-      "Yes — online personal programming includes a personalized plan, video demos for every exercise, form-check video reviews, and a weekly video check-in. Bands and a pair of dumbbells at home are enough to start.",
+      "It depends on how often we train, so I cover exact numbers in the consultation — no pressure, no upselling.",
   },
 ];
 

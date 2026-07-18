@@ -3,12 +3,6 @@
 import { useState, type FormEvent } from "react";
 import { siteConfig } from "@/lib/config";
 
-const FORMATS = [
-  "In-person (Saskatoon)",
-  "Online personal programming",
-  "Not sure yet",
-];
-
 const GOALS = [
   "Recover from an injury",
   "Live a pain-free life",
@@ -37,7 +31,6 @@ function buildMailtoUrl(data: FormData) {
     `Name: ${data.get("name") ?? ""}`,
     `Email: ${data.get("email") ?? ""}`,
     `Phone: ${data.get("phone") ?? ""}`,
-    `Training format: ${data.get("format") ?? ""}`,
     `Main goal: ${data.get("goal") ?? ""}`,
     `Preferred time: ${data.get("preferred_time") ?? ""}`,
     "",
@@ -201,31 +194,6 @@ export default function ContactForm() {
               className={inputClasses}
             />
           </div>
-        </div>
-
-        <div>
-          <label
-            htmlFor="format"
-            className="mb-1.5 block text-sm font-semibold text-ink"
-          >
-            Training format <span aria-hidden="true">*</span>
-          </label>
-          <select
-            id="format"
-            name="format"
-            required
-            defaultValue=""
-            className={`${inputClasses} cursor-pointer`}
-          >
-            <option value="" disabled>
-              In-person or online?
-            </option>
-            {FORMATS.map((format) => (
-              <option key={format} value={format}>
-                {format}
-              </option>
-            ))}
-          </select>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">

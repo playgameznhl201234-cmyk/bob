@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/config";
 const INCLUDED = [
   {
     title: "A 30-minute one-on-one conversation",
-    body: "In person in Saskatoon or over a free video call if you're going the online route — whichever is easier for you.",
+    body: "In person in Saskatoon or over the phone — whichever is easier for you.",
   },
   {
     title: "Movement & pain-history assessment",

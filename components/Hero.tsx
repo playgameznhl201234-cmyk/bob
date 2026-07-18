@@ -32,7 +32,7 @@ export default function Hero({
       <div className="mx-auto max-w-3xl px-4 pb-16 pt-16 text-center sm:px-6 sm:pb-20 sm:pt-24">
         <Reveal>
           <p className="text-sm font-bold uppercase tracking-widest text-teal-ink">
-            One-on-one personal training · Saskatoon &amp; online
+            One-on-one personal training · Saskatoon
           </p>
           <h1
             id="hero-heading"

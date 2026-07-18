@@ -22,7 +22,7 @@ export const siteConfig = {
    * here and a "book a time directly" button appears in the contact section.
    * Leave empty to hide the button.
    */
-  bookingUrl: "https://calendar.app.google/Nn7xLMq96KcNZtWi8",
+  bookingUrl: "",
   location: "Saskatoon, SK, Canada",
   instagram: "https://www.instagram.com/painfreediana/",
   facebook: "https://www.facebook.com/profile.php?id=61572342303798",

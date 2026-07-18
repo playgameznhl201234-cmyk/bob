@@ -5,6 +5,7 @@ import Problem from "@/components/Problem";
 import HowItWorks from "@/components/HowItWorks";
 import Services from "@/components/Services";
 import Results from "@/components/Results";
+import CtaBanner from "@/components/CtaBanner";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Consultation from "@/components/Consultation";
@@ -57,6 +58,7 @@ export default async function Home() {
         <HowItWorks />
         <Services />
         <Results />
+        <CtaBanner />
         <About />
         <FAQ />
         <Consultation />
