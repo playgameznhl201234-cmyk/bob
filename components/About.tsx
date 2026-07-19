@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
 import BrandName from "./BrandName";
 
@@ -22,14 +23,11 @@ export default function About() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="grid items-start gap-10 lg:grid-cols-[2fr_3fr] lg:gap-16">
           <Reveal>
-            {/* PLACEHOLDER: swap for a real headshot (e.g. /images/diana.jpg),
-                update the alt text, and consider switching to next/image */}
-            <img
-              src="/images/placeholders/headshot.svg"
-              alt="Placeholder portrait — swap with a real photo of Diana Kovalenko"
-              width={480}
-              height={560}
-              loading="lazy"
+            <Image
+              src="/images/diana.jpg"
+              alt="Diana Kovalenko, personal trainer, in her Saskatoon studio"
+              width={960}
+              height={1120}
               className="mx-auto aspect-[6/7] w-full max-w-sm rounded-2xl border border-ink/10 object-cover shadow-sm"
             />
           </Reveal>
