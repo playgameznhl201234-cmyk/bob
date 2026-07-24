@@ -8,6 +8,7 @@ const FEATURES = [
   "Hands-on technique coaching every session",
   "Load and intensity managed week to week",
   "Progress measured — strength, mobility, and pain levels",
+  "Adults and youth athletes welcome",
 ];
 
 export default function Services() {

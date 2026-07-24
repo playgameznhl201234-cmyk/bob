@@ -28,6 +28,11 @@ const FAQS = [
       "It depends on how often we train, so I cover exact numbers in the consultation — no pressure, no upselling.",
   },
   {
+    question: "Do you train teens and youth athletes?",
+    answer:
+      "Yes — a lot of my work is with young athletes recovering from a sports injury or building the strength and movement quality that prevents the next one. Sessions for minors are arranged with a parent or guardian.",
+  },
+  {
     question: "Where do sessions happen?",
     answer:
       "In person, in Saskatoon. Once you reach out, we'll text you the exact time and location details for your assessment.",

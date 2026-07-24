@@ -48,10 +48,17 @@ export default function About() {
               <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink-soft">
                 <p>
                   I’m a Saskatoon-based personal trainer who specializes in one
-                  thing: helping people who hurt get strong again. Desk workers
-                  with stubborn backs, new moms rebuilding their core, adults
-                  over 55 who refuse to slow down, and athletes coming back
-                  from injury.
+                  thing: helping people who hurt get strong again. Young
+                  athletes rebuilding after an injury, desk workers with
+                  stubborn backs, new moms rebuilding their core, and adults
+                  over 55 who refuse to slow down.
+                </p>
+                <p>
+                  A lot of my work is with teens and youth athletes — coming
+                  back from a sports injury, or building the strength and
+                  movement quality that prevents the next one. Parents tell me
+                  the confidence their kids gain matters as much as the
+                  physical progress.
                 </p>
                 <p>
                   I built <BrandName /> because I kept meeting people who’d
