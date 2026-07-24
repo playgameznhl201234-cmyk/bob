@@ -15,17 +15,16 @@ function toEmbedUrl(url: string) {
   return url.replace(/\/+$/, "") + "/embed/";
 }
 
-/* PLACEHOLDER: the before/after below uses placeholder images and a sample
-   stat. Swap /public/images/placeholders/before-1.svg and after-1.svg for
-   real client photos (.jpg/.webp), update the stat + caption + alt text,
-   and delete the visible "Placeholder" badge in the markup. */
+/* PLACEHOLDER: images only — swap /public/images/placeholders/before-1.svg
+   and after-1.svg for the real client photos (.jpg/.webp), update the alt
+   text, and delete the visible "Placeholder" badge in the markup below. */
 const RESULT = {
   before: "/images/placeholders/before-1.svg",
   after: "/images/placeholders/after-1.svg",
-  alt: "Placeholder before/after comparison — swap with real client photos",
-  stat: "Lost 20 lbs in 12 weeks",
+  alt: "Split squat progression — before and after coaching",
+  stat: "Split squat progression",
   caption:
-    "While training around a shoulder injury — no missed sessions, no flare-ups. Drag the slider to compare.",
+    "From a hesitant, unstable pattern to controlled depth and confident loading. Drag the slider to compare.",
 };
 
 export default function Results() {

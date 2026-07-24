@@ -15,10 +15,6 @@ const INCLUDED = [
     title: "A personalized plan outline",
     body: "You leave knowing exactly what your first 4 weeks would look like, whether you train with me or not.",
   },
-  {
-    title: "An honest recommendation",
-    body: "If personal training isn't what you need right now, I'll tell you — and point you toward what is.",
-  },
 ];
 
 export default function Consultation() {

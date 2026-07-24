@@ -1,42 +1,22 @@
 import Reveal from "./Reveal";
 
-/* PLACEHOLDER: all 7 quotes below are realistic placeholders — replace each
-   `quote` and `name` with real client testimonials before launch. */
+/* Real client testimonials. To add more, copy an entry and keep the format
+   (quote + first name and last initial). */
 const TESTIMONIALS = [
   {
     quote:
-      "After two years of back pain, I deadlifted 200 lbs pain-free last month. Diana rebuilt me from the ground up.",
-    name: "Sarah M.",
+      "Diana has been working with my son for a few months and has shown so much improvement not only in his athletic ability but his confidence as well. She is great with kids and would highly recommend.",
+    name: "Jennifer G.",
   },
   {
     quote:
-      "I came to Diana after a knee injury, terrified to squat again. Now it's my favourite lift.",
-    name: "James T.",
+      "Diana is very professional, has an individual technique for a client. 100% recommend.",
+    name: "Andrei K.",
   },
   {
     quote:
-      "She actually explains the why behind every exercise. No gimmicks, no fads — just steady progress.",
-    name: "Priya K.",
-  },
-  {
-    quote:
-      "Postpartum, I didn't recognize my own body. Six months later I'm stronger than before pregnancy.",
-    name: "Emily R.",
-  },
-  {
-    quote:
-      "At 62 I'd accepted stiffness as permanent. Diana proved me wrong within a couple of months.",
-    name: "Walter P.",
-  },
-  {
-    quote:
-      "My desk-job shoulders were wrecked. Three months in, I'm pain-free at the keyboard and in the gym.",
-    name: "Alex D.",
-  },
-  {
-    quote:
-      "Diana spotted a movement issue two other professionals had missed. Worth every single session.",
-    name: "Megan L.",
+      "Highly recommend Diana! My son injured his leg playing lacrosse, and Diana helped him immensely with his recovery. He is doing great now and continues to train with her to stay in top shape. Thank you so much, Diana, for your professional help and support!",
+    name: "Elena S.",
   },
 ];
 
@@ -51,14 +31,21 @@ export default function Testimonials() {
       </h2>
       <Reveal>
         <div className="marquee" aria-label="Client testimonials">
+          {/* The list is repeated so the loop is seamless; the copies are
+              hidden from screen readers. */}
           <ul className="marquee-track">
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+            {[
+              ...TESTIMONIALS,
+              ...TESTIMONIALS,
+              ...TESTIMONIALS,
+              ...TESTIMONIALS,
+            ].map((t, i) => (
               <li
                 key={i}
                 aria-hidden={i >= TESTIMONIALS.length || undefined}
-                className="mr-4 w-80 shrink-0 rounded-2xl border border-ink/10 bg-white p-6 shadow-sm"
+                className="mr-4 flex w-80 shrink-0 rounded-2xl border border-ink/10 bg-white p-6 shadow-sm sm:w-96"
               >
-                <blockquote className="flex h-full flex-col justify-between gap-4">
+                <blockquote className="flex flex-col gap-3">
                   <p className="text-[15px] leading-relaxed text-ink">
                     “{t.quote}”
                   </p>

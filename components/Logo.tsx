@@ -1,35 +1,20 @@
-/* The figure is the real silhouette extracted from the original logo file
-   (public/logo-figure.png, transparent background). The wordmark is styled
-   text matching the logo's fonts/colors — swap for a full logo image export
-   anytime by replacing this component's contents. */
+/* The real logo (figure + wordmark) extracted from the original file with a
+   transparent background: public/logo.png. The same artwork is used for the
+   browser-tab icon (app/icon.png) so the site and tab match.
+
+   The `tone="light"` variant is used on the dark footer — the logo's own
+   colours stay readable there, so it renders the same image. */
 export default function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
   return (
-    <span className="flex items-center gap-2.5 leading-none">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/logo-figure.png"
-        alt=""
-        aria-hidden="true"
-        width={267}
-        height={234}
-        className="h-9 w-auto shrink-0"
-      />
-      <span className="flex items-baseline gap-2">
-        <span
-          className={`whitespace-nowrap font-body text-lg font-extrabold uppercase tracking-wider ${
-            tone === "light" ? "text-cream" : "text-brand"
-          }`}
-        >
-          Pain Free
-        </span>
-        <span
-          className={`font-script text-2xl font-bold ${
-            tone === "light" ? "text-teal" : "text-teal-deep"
-          }`}
-        >
-          Diana
-        </span>
-      </span>
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/logo.png"
+      alt="PainFreeDiana"
+      width={528}
+      height={246}
+      className={`h-10 w-auto sm:h-11 ${
+        tone === "light" ? "brightness-0 invert" : ""
+      }`}
+    />
   );
 }
