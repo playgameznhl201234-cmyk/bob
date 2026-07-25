@@ -4,16 +4,16 @@ import BrandName from "./BrandName";
 
 const DIFFERENTIATORS = [
   {
-    title: "Assessment before exercise",
-    body: "Nobody gets a workout on day one. Understanding how you move — and why it hurts — comes first.",
+    title: "Understanding you first",
+    body: "Nobody gets a workout on day one. We start by understanding how you move and what your body needs, so everything after fits you.",
   },
   {
-    title: "Evidence over trends",
-    body: "No detox teas, no six-week miracles. Just principles backed by research on pain science and strength training.",
+    title: "Grounded in what works",
+    body: "No quick fixes or fleeting trends — just caring, thoughtful coaching grounded in solid principles of movement and strength.",
   },
   {
-    title: "Train around pain, not through it",
-    body: "Pain is a signal to adjust, not a badge of honour. You'll keep making progress while your body heals.",
+    title: "Working with your body",
+    body: "We work with your body, not against it. You'll keep making steady, sustainable progress while feeling supported the whole way.",
   },
 ];
 
@@ -62,10 +62,10 @@ export default function About() {
                 </p>
                 <p>
                   I built <BrandName /> because I kept meeting people who’d
-                  been told to “just rest” or “stop lifting” — advice that
-                  keeps you comfortable and keeps you weak. The research is
-                  clear: the right movement, dosed correctly, is one of the
-                  best treatments for persistent pain. That’s what we do here.
+                  been told to simply “rest” or “stop” — and who deserved so
+                  much more. I believe the right movement, guided with care, is
+                  one of the most powerful ways to feel better, grow stronger,
+                  and trust your body again. That’s what we do here.
                 </p>
               </div>
             </Reveal>

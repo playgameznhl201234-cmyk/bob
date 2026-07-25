@@ -4,11 +4,11 @@ import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
 const FEATURES = [
-  "Full movement & pain-history assessment before any workout",
-  "Hands-on technique coaching every session",
-  "Load and intensity managed week to week",
-  "Progress measured — strength, mobility, and pain levels",
-  "Adults and youth athletes welcome",
+  "A thoughtful movement & history assessment before any workout",
+  "Supportive, hands-on technique coaching every session",
+  "Intensity guided week to week, always at your pace",
+  "Progress celebrated — strength, mobility, and how you feel",
+  "Adults and youth athletes warmly welcome",
 ];
 
 export default function Services() {
@@ -30,8 +30,8 @@ export default function Services() {
             One-on-one coaching in Saskatoon
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-            Train together, face to face. Every rep is watched, every session
-            adjusted to how your body is responding that day.
+            We train together, face to face — with encouragement, attention,
+            and every session shaped around how your body feels that day.
           </p>
         </Reveal>
 

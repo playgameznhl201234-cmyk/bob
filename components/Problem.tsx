@@ -2,8 +2,8 @@ import Reveal from "./Reveal";
 
 const STRUGGLES = [
   {
-    title: "You rest it — the pain comes back",
-    body: "Weeks off, careful stretching, maybe a foam roller. It feels better… until you train again. Rest treats the symptom, not the cause.",
+    title: "Resting alone hasn't fixed it",
+    body: "Time off, gentle stretching, maybe a foam roller — it eases for a while, then returns. Real relief comes from building strength around the cause, not just calming the symptom.",
     icon: (
       <>
         <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
@@ -12,13 +12,13 @@ const STRUGGLES = [
     ),
   },
   {
-    title: "Your progress has flat-lined",
-    body: "Same weights, same routine, same nagging aches — for months. Working harder isn't the answer when the plan wasn't built for your body.",
+    title: "Your progress has stalled",
+    body: "Same routine, same nagging aches, month after month. Working harder rarely helps — what changes things is a plan shaped around your body and how it moves.",
     icon: <path d="M22 12h-4l-3 9L9 3l-3 9H2" />,
   },
   {
-    title: "Random workouts, random results",
-    body: "Programs from the internet were written for someone else's body and history. Effort without direction is how small issues become injuries.",
+    title: "Generic plans don't fit you",
+    body: "Programs from the internet were built for someone else's body and history. With clear direction that fits you, every session moves you forward — safely.",
     icon: (
       <>
         <path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.8-1.1 2-1.7 3.3-1.7H22" />
@@ -43,11 +43,11 @@ export default function Problem() {
             id="problem-heading"
             className="font-heading text-3xl text-brand sm:text-4xl"
           >
-            Sound familiar?
+            Does this sound like you?
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-            Most people don’t need more willpower. They need a plan that
-            accounts for their body, their history, and their pain.
+            You don’t need to push harder or do more. You need a plan that
+            honours your body, your history, and where you want to go.
           </p>
         </Reveal>
 
@@ -83,10 +83,10 @@ export default function Problem() {
 
         <Reveal className="mx-auto mt-12 max-w-2xl text-center">
           <p className="text-lg leading-relaxed text-ink">
-            Pain isn’t a life sentence — it’s information.{" "}
+            Your body is capable of so much more than you’ve been told.{" "}
             <span className="font-semibold text-brand">
-              With the right assessment and a plan built around your body, you
-              can train hard and feel good doing it.
+              With a thoughtful assessment and a plan built around you, you can
+              move freely, grow stronger, and truly enjoy it.
             </span>
           </p>
         </Reveal>

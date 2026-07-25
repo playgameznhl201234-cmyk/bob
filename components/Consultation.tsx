@@ -8,12 +8,12 @@ const INCLUDED = [
     body: "We meet face to face in Saskatoon — after you reach out, we'll text you the time and location details.",
   },
   {
-    title: "Movement & pain-history assessment",
-    body: "We look at how you move and where it hurts, so recommendations are based on your body — not a questionnaire.",
+    title: "A caring movement & history check",
+    body: "We look at how you move and how you're feeling, so any guidance is based on your body — never a generic questionnaire.",
   },
   {
     title: "A personalized plan outline",
-    body: "You leave knowing exactly what your first 4 weeks would look like, whether you train with me or not.",
+    body: "You'll leave with a clear picture of what your first 4 weeks could look like, whether you train with me or not.",
   },
 ];
 
@@ -34,11 +34,11 @@ export default function Consultation() {
               id="contact-heading"
               className="mt-3 font-heading text-3xl text-brand sm:text-4xl"
             >
-              Let’s figure out what’s holding you back
+              Let’s take the first step together
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-              The consultation is free, and there’s no obligation. Here’s what
-              it includes:
+              The consultation is free, and there’s no pressure at all. Here’s
+              what it includes:
             </p>
             <ul className="mt-8 space-y-5">
               {INCLUDED.map((item) => (

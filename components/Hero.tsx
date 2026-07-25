@@ -38,13 +38,14 @@ export default function Hero({
             id="hero-heading"
             className="mt-5 font-heading text-4xl leading-tight text-brand sm:text-5xl md:text-6xl"
           >
-            Helping you move{" "}
+            Move{" "}
             <span className="whitespace-nowrap">pain-free</span>
-            {" & live your best life"}
+            {", feel strong, and thrive"}
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Coaching that gets to the root of your pain — so you can build
-            strength that lasts, without the fear of flare-ups.
+            Supportive, personalized coaching that helps you build lasting
+            strength, mobility, and confidence — so you can move well and feel
+            your best for years to come.
           </p>
         </Reveal>
 

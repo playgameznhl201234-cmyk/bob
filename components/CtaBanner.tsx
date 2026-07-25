@@ -10,11 +10,11 @@ export default function CtaBanner() {
       <div className="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 sm:py-16">
         <Reveal>
           <h2 className="font-heading text-3xl text-white sm:text-4xl">
-            Ready to move without pain?
+            Ready to feel your best?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-lg leading-relaxed text-cream/90">
-            The first step is a free, no-pressure conversation about where you
-            are and where you want to be.
+            It starts with a free, friendly conversation about where you are
+            and where you'd love to be.
           </p>
           <motion.a
             href="#contact"

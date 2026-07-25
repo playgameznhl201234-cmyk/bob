@@ -46,8 +46,8 @@ export default function Results() {
             Real people, real progress
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-            Different bodies, different starting points — the same
-            assessment-first approach.
+            Different bodies, different starting points — every one supported
+            with care, patience, and a plan made just for them.
           </p>
         </Reveal>
 

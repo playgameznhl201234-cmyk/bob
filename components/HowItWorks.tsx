@@ -2,20 +2,20 @@ import Reveal from "./Reveal";
 
 const STEPS = [
   {
-    title: "Assessment",
-    body: "We start with a full movement screen and pain history — not a workout. Finding the root cause comes before fixing anything.",
+    title: "Get to know you",
+    body: "We begin with a full movement screen and a conversation about your history and goals — understanding your body always comes before any workout.",
   },
   {
-    title: "Personalized plan",
-    body: "You get a program built around your body, your goals, and your schedule — not a template pulled off a shelf.",
+    title: "Your personalized plan",
+    body: "You get a program shaped around your body, your goals, and your schedule — thoughtfully designed for you, never a one-size-fits-all template.",
   },
   {
-    title: "One-on-one coaching",
-    body: "We train together in person in Saskatoon. Technique, load, and intensity are managed session by session, so you progress without setbacks.",
+    title: "Coaching by your side",
+    body: "We train together, one-on-one in Saskatoon. Every session is guided and adjusted to how you're feeling, so you keep progressing with confidence.",
   },
   {
-    title: "Track & progress",
-    body: "We measure what matters — strength, range of motion, pain levels — and adjust the plan based on data, not guesswork.",
+    title: "Celebrate your progress",
+    body: "We track what matters — strength, mobility, how you feel — and evolve your plan as you grow, so your wins keep building.",
   },
 ];
 
@@ -34,8 +34,8 @@ export default function HowItWorks() {
             How it works
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-            A simple, evidence-based process — the same one every client goes
-            through, adapted to where you’re starting from.
+            A simple, supportive process — the same caring approach for every
+            client, always meeting you exactly where you are.
           </p>
         </Reveal>
 

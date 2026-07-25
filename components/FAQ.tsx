@@ -10,12 +10,12 @@ const FAQS = [
   {
     question: "Do I need to be fit before I start?",
     answer:
-      "No — that's like cleaning the house before the cleaner comes. The assessment meets you exactly where you are today, and the program starts from there.",
+      "Not at all — you're welcome exactly as you are today. The assessment meets you right where you're starting, and we build from there at a pace that feels good for you.",
   },
   {
     question: "I'm in pain right now. Can I still train?",
     answer:
-      "In most cases, yes — training around pain (not through it) is exactly what I specialize in. And if something needs medical attention first, I'll tell you honestly and point you to the right professional.",
+      "In most cases, yes — gently working with your body, not through pain, is exactly what I specialize in. And if something needs medical attention first, I'll let you know kindly and point you to the right professional.",
   },
   {
     question: "What happens in the free consultation?",
