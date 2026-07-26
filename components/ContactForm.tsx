@@ -2,6 +2,7 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import { siteConfig } from "@/lib/config";
+import SlideToVerify from "./SlideToVerify";
 
 const GOALS = [
   "Recover from an injury",
@@ -43,6 +44,7 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [firstName, setFirstName] = useState("");
   const [botError, setBotError] = useState("");
+  const [verified, setVerified] = useState(false);
   // When the form was rendered — used to reject instant (bot) submissions.
   const mountedAt = useRef(Date.now());
 
@@ -51,11 +53,15 @@ export default function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
 
-    // Spam safeguards: (1) honeypot field only bots fill, (2) a submission
-    // faster than a human could realistically type. The visible "I'm not a
-    // robot" checkbox is enforced by the browser (required).
+    // Layered spam safeguards:
+    // (1) slide-to-verify gesture, (2) honeypot only bots fill,
+    // (3) a submission faster than a human could realistically complete.
     const honeypotFilled = String(data.get("_honey") ?? "").trim() !== "";
     const tooFast = Date.now() - mountedAt.current < 3000;
+    if (!verified) {
+      setBotError("Please slide to verify you’re human before sending.");
+      return;
+    }
     if (honeypotFilled || tooFast) {
       setBotError(
         "Please take a moment to complete the form — if you're a person, try again and it'll go right through.",
@@ -63,9 +69,6 @@ export default function ContactForm() {
       return;
     }
     setBotError("");
-
-    // FormSubmit doesn't need the checkbox value; drop it before sending.
-    data.delete("not_robot");
 
     setFirstName(String(data.get("name") ?? "").trim().split(" ")[0]);
     setStatus("sending");
@@ -86,6 +89,7 @@ export default function ContactForm() {
       const result = await response.json().catch(() => null);
       if (response.ok && result && `${result.success}` === "true") {
         setStatus("success");
+        setVerified(false);
         form.reset();
       } else {
         window.location.href = buildMailtoUrl(data);
@@ -129,7 +133,10 @@ export default function ContactForm() {
         </p>
         <button
           type="button"
-          onClick={() => setStatus("idle")}
+          onClick={() => {
+            setVerified(false);
+            setStatus("idle");
+          }}
           className="mt-2 cursor-pointer text-sm font-semibold text-brand underline-offset-4 hover:underline"
         >
           Send another message
@@ -284,17 +291,7 @@ export default function ContactForm() {
           />
         </div>
 
-        <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-ink/20 bg-cream/60 px-4 py-3">
-          <input
-            type="checkbox"
-            name="not_robot"
-            required
-            className="h-5 w-5 shrink-0 cursor-pointer accent-brand"
-          />
-          <span className="text-sm font-medium text-ink">
-            I’m not a robot <span aria-hidden="true">*</span>
-          </span>
-        </label>
+        <SlideToVerify onVerifiedChange={setVerified} />
 
         {botError && (
           <p
