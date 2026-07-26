@@ -25,10 +25,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://painfreediana.com"),
   title: "PainFreeDiana | Personal Trainer in Saskatoon — Move Pain-Free",
   description:
-    "One-on-one personal training in Saskatoon with Diana Kovalenko. Supportive injury recovery, mobility and strength coaching — helping you move pain-free, build resilience, and thrive. Book a free consultation.",
+    "One-on-one personal training in Saskatoon with Diana Kovalenko. Supportive strength, mobility, and return-to-training coaching — helping you move pain-free, build resilience, and thrive. Book a free consultation.",
   keywords: [
     "personal trainer Saskatoon",
-    "injury recovery training",
+    "training after injury",
     "pain-free movement",
     "mobility coach",
     "strength training Saskatoon",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PainFreeDiana | Move Pain-Free, Feel Strong & Thrive",
     description:
-      "Supportive one-on-one personal training in Saskatoon focused on injury recovery, mobility, and lasting strength. Book a free consultation with Diana Kovalenko.",
+      "Supportive one-on-one personal training in Saskatoon focused on training after injury, mobility, and lasting strength. Book a free consultation with Diana Kovalenko.",
     type: "website",
     locale: "en_CA",
     siteName: "PainFreeDiana",

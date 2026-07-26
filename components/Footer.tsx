@@ -21,8 +21,8 @@ export default function Footer() {
             <Logo tone="light" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/70">
               {siteConfig.tagline}. One-on-one personal training in{" "}
-              {siteConfig.location.split(",")[0]}, focused on injury recovery,
-              mobility, and strength.
+              {siteConfig.location.split(",")[0]}, focused on training after
+              injury, mobility, and strength.
             </p>
           </div>
 
@@ -33,7 +33,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a
-                  href={`mailto:${siteConfig.email}`}
+                  href="/#contact"
                   className="flex items-center gap-3 text-cream/80 transition-colors hover:text-teal"
                 >
                   <svg
@@ -50,7 +50,7 @@ export default function Footer() {
                     <rect width="20" height="16" x="2" y="4" rx="2" />
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                   </svg>
-                  {siteConfig.email}
+                  Send a message
                 </a>
               </li>
               <li className="flex items-center gap-3 text-cream/80">

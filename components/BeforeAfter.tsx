@@ -21,12 +21,12 @@ export default function BeforeAfter({
   const [position, setPosition] = useState(50);
 
   return (
-    <div className="relative aspect-[4/5] w-full select-none overflow-hidden">
+    <div className="relative aspect-[3/4] w-full select-none overflow-hidden">
       <img
         src={after}
         alt={afterAlt}
-        width={480}
-        height={600}
+        width={1080}
+        height={1440}
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
         draggable={false}
@@ -34,8 +34,8 @@ export default function BeforeAfter({
       <img
         src={before}
         alt={beforeAlt}
-        width={480}
-        height={600}
+        width={1080}
+        height={1440}
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}

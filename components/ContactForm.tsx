@@ -353,14 +353,16 @@ export default function ContactForm() {
             role="status"
             className="rounded-lg border border-teal-deep/30 bg-teal/10 px-4 py-3 text-sm font-medium leading-relaxed text-teal-ink"
           >
-            Your email app should have opened with your request addressed to{" "}
-            <span className="font-semibold">{siteConfig.email}</span> — just
-            press send. If it didn’t open, email me directly at{" "}
+            Your email app should have opened with your request ready to go —
+            just press send. If it didn’t open, please try the form again in a
+            moment, or send me a message on{" "}
             <a
-              href={`mailto:${siteConfig.email}`}
+              href={siteConfig.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-semibold underline underline-offset-2"
             >
-              {siteConfig.email}
+              Instagram
             </a>
             .
           </p>

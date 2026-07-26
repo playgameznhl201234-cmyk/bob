@@ -24,9 +24,8 @@ const structuredData = {
   "@type": "LocalBusiness",
   name: siteConfig.businessName,
   description:
-    "One-on-one personal training in Saskatoon focused on injury recovery, mobility, and strength.",
+    "One-on-one personal training in Saskatoon focused on training after injury, mobility, and strength.",
   url: siteConfig.url,
-  email: siteConfig.email,
   founder: {
     "@type": "Person",
     name: siteConfig.trainerName,

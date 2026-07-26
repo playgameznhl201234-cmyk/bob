@@ -138,28 +138,32 @@ git push -u origin main
 From then on, every `git push` triggers a fresh Vercel deploy (once the repo
 is imported in Vercel — see below).
 
-## Swap in real content
+## Content: what's real, what's left
 
-Every piece of dummy content is marked with a `PLACEHOLDER` comment — search
-the project for `PLACEHOLDER` to find them all:
+Real and live: the logo, Diana's headshot, the three client testimonials, the
+seated good morning before/after photos, and the Instagram videos.
+
+Still marked with a `PLACEHOLDER` comment (search the project to find them):
 
 | What | Where |
 | --- | --- |
-| Logo (currently recreated as text) | `components/Logo.tsx` |
-| Google rating trust line | `components/Hero.tsx` |
-| Testimonial quotes | `components/Testimonials.tsx` |
-| Before/after photos + result stats | `components/Results.tsx` + `public/images/placeholders/` |
-| Headshot + bio + certifications | `components/About.tsx` |
-| Production domain (social previews, sitemap, structured data) | `app/layout.tsx` (`metadataBase`) + `lib/config.ts` (`url`) |
-| Social share image (auto-generated from brand fonts) | `app/opengraph-image.tsx` |
+| Bio specifics (years coaching, client count) | `components/About.tsx` |
+| Google rating trust line (shows a neutral line until reviews exist) | `components/Hero.tsx` |
 
-Contact details, social links, and the booking URL all live in
-[`lib/config.ts`](lib/config.ts).
+Everyday content lives here:
 
-When you replace the placeholder SVGs with real photos (`.jpg`/`.webp`),
-consider switching the `<img>` tags in `Results.tsx` and `About.tsx` to
-[`next/image`](https://nextjs.org/docs/app/api-reference/components/image)
-for automatic optimization, and delete the visible "Placeholder" badges.
+| What | Where |
+| --- | --- |
+| Contact email (delivery only — never shown on the site), socials, booking URL | `lib/config.ts` |
+| Testimonials | `components/Testimonials.tsx` |
+| Before/after photos + caption | `components/Results.tsx` + `public/images/` |
+| Instagram video links | `INSTAGRAM_VIDEOS` in `components/Results.tsx` |
+| FAQ questions | `components/FAQ.tsx` |
+
+**Note on the contact email:** it is deliberately not displayed anywhere on
+the site (no `mailto:` links, not in the structured data) to keep it away
+from scrapers and spam. Visitors reach Diana through the contact form; the
+address in `lib/config.ts` is only used to deliver those submissions.
 
 ## Deploy to Vercel
 

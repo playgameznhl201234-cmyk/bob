@@ -14,16 +14,16 @@ function toEmbedUrl(url: string) {
   return url.replace(/\/+$/, "") + "/embed/";
 }
 
-/* PLACEHOLDER: images only — swap /public/images/placeholders/before-1.svg
-   and after-1.svg for the real client photos (.jpg/.webp), update the alt
-   text, and delete the visible "Placeholder" badge in the markup below. */
 const RESULT = {
-  before: "/images/placeholders/before-1.svg",
-  after: "/images/placeholders/after-1.svg",
-  alt: "Split squat progression — before and after coaching",
-  stat: "Split squat progression",
+  before: "/images/result-before.jpg",
+  after: "/images/result-after.jpg",
+  beforeAlt:
+    "Client performing a seated good morning with a light dumbbell at the start of training",
+  afterAlt:
+    "The same client performing a barbell seated good morning with Diana coaching alongside",
+  stat: "Seated good morning progression",
   caption:
-    "From a hesitant, unstable pattern to controlled depth and confident loading. Drag the slider to compare.",
+    "From a light dumbbell and a cautious hinge to a loaded barbell with confident control. Drag the slider to compare.",
 };
 
 export default function Results() {
@@ -52,18 +52,12 @@ export default function Results() {
 
         <Reveal delay={100} className="mx-auto mt-12 max-w-md">
           <figure className="overflow-hidden rounded-2xl border border-ink/10 bg-cream shadow-sm">
-            <div className="relative">
-              <BeforeAfter
-                before={RESULT.before}
-                after={RESULT.after}
-                beforeAlt={`Before: ${RESULT.alt}`}
-                afterAlt={`After: ${RESULT.alt}`}
-              />
-              {/* PLACEHOLDER badge — delete this <span> once real photos are in */}
-              <span className="pointer-events-none absolute bottom-3 left-3 rounded-full bg-brand-ink/80 px-3 py-1 text-xs font-bold uppercase tracking-wide text-cream">
-                Placeholder
-              </span>
-            </div>
+            <BeforeAfter
+              before={RESULT.before}
+              after={RESULT.after}
+              beforeAlt={RESULT.beforeAlt}
+              afterAlt={RESULT.afterAlt}
+            />
             <figcaption className="flex flex-col gap-2 p-6">
               <span className="font-heading text-xl text-brand">
                 {RESULT.stat}

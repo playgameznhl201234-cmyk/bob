@@ -73,9 +73,9 @@ export default function PrivacyPage() {
       <h2>Your rights</h2>
       <p>
         You can ask what information we hold about you, ask us to correct it,
-        or ask us to delete it — just email{" "}
-        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>. We
-        handle personal information in line with Canada's Personal Information
+        or ask us to delete it — just send the request through the{" "}
+        <a href="/#contact">contact form</a> on our home page. We handle
+        personal information in line with Canada's Personal Information
         Protection and Electronic Documents Act (PIPEDA).
       </p>
 
@@ -93,8 +93,9 @@ export default function PrivacyPage() {
 
       <h2>Contact</h2>
       <p>
-        Questions about this policy:{" "}
-        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        Questions about this policy? Please reach out through the{" "}
+        <a href="/#contact">contact form</a> on our home page and we’ll get
+        back to you.
       </p>
     </LegalPage>
   );

@@ -15,7 +15,7 @@ const FAQS = [
   {
     question: "I'm in pain right now. Can I still train?",
     answer:
-      "In most cases, yes — gently working with your body, not through pain, is exactly what I specialize in. And if something needs medical attention first, I'll let you know kindly and point you to the right professional.",
+      "In most cases, yes — gently working with your body, not through pain, is exactly what I specialize in. To be clear, I'm a personal trainer, not a medical professional: I don't diagnose injuries, provide treatment or therapy, or replace the care of your doctor or physiotherapist. If you have a diagnosed condition or you're currently under someone's care, please check with them first — I'm always glad to train alongside their guidance.",
   },
   {
     question: "What happens in the free consultation?",
