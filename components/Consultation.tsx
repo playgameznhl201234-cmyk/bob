@@ -12,8 +12,8 @@ const INCLUDED = [
     body: "We look at how you move and how you're feeling, so any guidance is based on your body — never a generic questionnaire.",
   },
   {
-    title: "A personalized plan outline",
-    body: "You'll leave with a clear picture of what your first 4 weeks could look like, whether you train with me or not.",
+    title: "A look at your first four weeks",
+    body: "You'll leave with a clear picture of what your first four weeks of training could look like.",
   },
 ];
 

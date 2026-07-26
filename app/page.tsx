@@ -12,6 +12,7 @@ import Consultation from "@/components/Consultation";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import StickyBookBar from "@/components/StickyBookBar";
+import ConsultPopup from "@/components/ConsultPopup";
 import { siteConfig } from "@/lib/config";
 import { getGoogleRating } from "@/lib/google-reviews";
 
@@ -65,6 +66,7 @@ export default async function Home() {
       </main>
       <Footer />
       <StickyBookBar />
+      <ConsultPopup />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

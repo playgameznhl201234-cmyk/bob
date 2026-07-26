@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { siteConfig } from "@/lib/config";
 
 const GOALS = [
@@ -42,11 +42,31 @@ function buildMailtoUrl(data: FormData) {
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [firstName, setFirstName] = useState("");
+  const [botError, setBotError] = useState("");
+  // When the form was rendered — used to reject instant (bot) submissions.
+  const mountedAt = useRef(Date.now());
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
+
+    // Spam safeguards: (1) honeypot field only bots fill, (2) a submission
+    // faster than a human could realistically type. The visible "I'm not a
+    // robot" checkbox is enforced by the browser (required).
+    const honeypotFilled = String(data.get("_honey") ?? "").trim() !== "";
+    const tooFast = Date.now() - mountedAt.current < 3000;
+    if (honeypotFilled || tooFast) {
+      setBotError(
+        "Please take a moment to complete the form — if you're a person, try again and it'll go right through.",
+      );
+      return;
+    }
+    setBotError("");
+
+    // FormSubmit doesn't need the checkbox value; drop it before sending.
+    data.delete("not_robot");
+
     setFirstName(String(data.get("name") ?? "").trim().split(" ")[0]);
     setStatus("sending");
 
@@ -263,6 +283,27 @@ export default function ContactForm() {
             className={inputClasses}
           />
         </div>
+
+        <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-ink/20 bg-cream/60 px-4 py-3">
+          <input
+            type="checkbox"
+            name="not_robot"
+            required
+            className="h-5 w-5 shrink-0 cursor-pointer accent-brand"
+          />
+          <span className="text-sm font-medium text-ink">
+            I’m not a robot <span aria-hidden="true">*</span>
+          </span>
+        </label>
+
+        {botError && (
+          <p
+            role="alert"
+            className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm font-medium leading-relaxed text-amber-800"
+          >
+            {botError}
+          </p>
+        )}
 
         {status === "mailto" && (
           <p
