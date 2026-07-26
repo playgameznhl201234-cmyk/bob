@@ -7,7 +7,6 @@ import BeforeAfter from "./BeforeAfter";
    video row entirely. */
 const INSTAGRAM_VIDEOS: string[] = [
   "https://www.instagram.com/p/DYkSHR8P9ws/",
-  "https://www.instagram.com/p/DX4ID2YvqSy/",
   "https://www.instagram.com/p/DXmVl1Fj0Oc/",
 ];
 
