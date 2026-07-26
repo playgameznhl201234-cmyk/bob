@@ -28,9 +28,42 @@ the form automatically falls back to opening the visitor's own email app
 with the message pre-addressed and pre-filled — no request is ever lost.
 
 To change the destination address, edit `email` in
-[`lib/config.ts`](lib/config.ts). To switch providers later (Resend, custom
-API route, etc.), the only code that touches FormSubmit is the `fetch` call
-in [`components/ContactForm.tsx`](components/ContactForm.tsx).
+[`lib/config.ts`](lib/config.ts).
+
+### Spam protection
+
+Out of the box the form uses a built-in **slide-to-verify** human check plus
+a hidden honeypot and a timing guard — no setup, works immediately.
+
+To upgrade to the real **Google reCAPTCHA** ("I'm not a robot"), see the
+next section.
+
+## Google reCAPTCHA (optional, recommended for a public site)
+
+Turns the form's human check into the genuine Google reCAPTCHA v2 widget,
+**verified on the server** so a bot can't get an email through without
+passing Google's challenge. It stays fully working with the slide-to-verify
+fallback until you add the keys.
+
+1. Go to the
+   [reCAPTCHA admin console](https://www.google.com/recaptcha/admin/create)
+   (sign in with any Google account).
+2. Register a site: pick **reCAPTCHA v2 → "I'm not a robot" Checkbox**.
+3. Under **Domains** add `painfreediana.com` (and `localhost` if you want it
+   to work in local development too).
+4. Accept the terms and submit. You'll get two keys:
+   - **Site key** (public)
+   - **Secret key** (private — never share it)
+5. Add both to `.env.local` (copy `.env.example`) **and** to Vercel under
+   **Project → Settings → Environment Variables**, then redeploy:
+
+   ```
+   NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_site_key
+   RECAPTCHA_SECRET_KEY=your_secret_key
+   ```
+
+The moment both keys are set, the form swaps the slide check for the real
+reCAPTCHA widget, verified at [`app/api/contact`](app/api/contact/route.ts).
 
 ## Set up direct booking (Google Calendar + Zoom)
 

@@ -3,6 +3,12 @@
 import { useRef, useState, type FormEvent } from "react";
 import { siteConfig } from "@/lib/config";
 import SlideToVerify from "./SlideToVerify";
+import Recaptcha from "./Recaptcha";
+
+// When a reCAPTCHA site key is configured, the form uses the real Google
+// reCAPTCHA (verified server-side at /api/contact). Otherwise it falls back
+// to the built-in slide-to-verify check. See README "Google reCAPTCHA".
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
 const GOALS = [
   "Recover from an injury",
@@ -41,10 +47,12 @@ function buildMailtoUrl(data: FormData) {
 }
 
 export default function ContactForm() {
+  const useRecaptcha = RECAPTCHA_SITE_KEY !== "";
   const [status, setStatus] = useState<Status>("idle");
   const [firstName, setFirstName] = useState("");
   const [botError, setBotError] = useState("");
-  const [verified, setVerified] = useState(false);
+  const [verified, setVerified] = useState(false); // slide-to-verify fallback
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   // When the form was rendered — used to reject instant (bot) submissions.
   const mountedAt = useRef(Date.now());
 
@@ -53,12 +61,17 @@ export default function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
 
-    // Layered spam safeguards:
-    // (1) slide-to-verify gesture, (2) honeypot only bots fill,
-    // (3) a submission faster than a human could realistically complete.
     const honeypotFilled = String(data.get("_honey") ?? "").trim() !== "";
     const tooFast = Date.now() - mountedAt.current < 3000;
-    if (!verified) {
+
+    // Human check: real Google reCAPTCHA when configured, otherwise the
+    // built-in slide-to-verify gesture.
+    if (useRecaptcha) {
+      if (!recaptchaToken) {
+        setBotError("Please complete the “I’m not a robot” check before sending.");
+        return;
+      }
+    } else if (!verified) {
       setBotError("Please slide to verify you’re human before sending.");
       return;
     }
@@ -69,14 +82,43 @@ export default function ContactForm() {
       return;
     }
     setBotError("");
-
     setFirstName(String(data.get("name") ?? "").trim().split(" ")[0]);
     setStatus("sending");
 
-    // Submissions are emailed to siteConfig.email via FormSubmit.co (no
-    // account required — see lib/config.ts). If delivery fails for any
-    // reason, fall back to opening the visitor's own email app with the
-    // message pre-addressed and pre-filled, so no request is ever lost.
+    // reCAPTCHA path: verify + deliver on the server (/api/contact). Only a
+    // real, Google-confirmed human gets an email through.
+    if (useRecaptcha) {
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            token: recaptchaToken,
+            name: data.get("name"),
+            email: data.get("email"),
+            phone: data.get("phone"),
+            goal: data.get("goal"),
+            preferred_time: data.get("preferred_time"),
+            message: data.get("message"),
+          }),
+        });
+        if (res.ok) {
+          setStatus("success");
+          setRecaptchaToken(null);
+          window.grecaptcha?.reset?.();
+          form.reset();
+        } else {
+          window.location.href = buildMailtoUrl(data);
+          setStatus("mailto");
+        }
+      } catch {
+        window.location.href = buildMailtoUrl(data);
+        setStatus("mailto");
+      }
+      return;
+    }
+
+    // Fallback path: email directly via FormSubmit from the browser.
     try {
       const response = await fetch(
         `https://formsubmit.co/ajax/${siteConfig.email}`,
@@ -291,7 +333,11 @@ export default function ContactForm() {
           />
         </div>
 
-        <SlideToVerify onVerifiedChange={setVerified} />
+        {useRecaptcha ? (
+          <Recaptcha siteKey={RECAPTCHA_SITE_KEY} onToken={setRecaptchaToken} />
+        ) : (
+          <SlideToVerify onVerifiedChange={setVerified} />
+        )}
 
         {botError && (
           <p
