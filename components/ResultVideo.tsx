@@ -39,7 +39,14 @@ export default function ResultVideo({
         playsInline
         preload="metadata"
         aria-label={label}
-        className="h-full w-full object-cover"
+        // Hide the download / picture-in-picture items in the browser's own
+        // player menu, and block right-click "Save video as".
+        controlsList="nodownload noplaybackrate noremoteplayback"
+        disablePictureInPicture
+        onContextMenu={(e) => e.preventDefault()}
+        // object-contain keeps the whole frame visible — the video is shown
+        // exactly as filmed, never cropped or zoomed.
+        className="h-full w-full object-contain"
         onPlay={() => setStarted(true)}
       />
 
@@ -59,7 +66,7 @@ export default function ResultVideo({
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, 360px"
-                className="-z-10 object-cover"
+                className="-z-10 object-contain"
               />
             )}
             <motion.span
