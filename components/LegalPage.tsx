@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import Logo from "./Logo";
 import { siteConfig } from "@/lib/config";
 
@@ -16,15 +17,15 @@ export default function LegalPage({
     <>
       <header className="border-b border-ink/10 bg-cream">
         <div className="mx-auto flex h-16 max-w-3xl items-center justify-between px-4 sm:px-6">
-          <a href="/" aria-label="PainFreeDiana — back to home">
+          <Link href="/" aria-label="PainFreeDiana — back to home">
             <Logo />
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             className="shrink-0 whitespace-nowrap text-sm font-semibold text-brand underline-offset-4 hover:underline"
           >
             ← Back<span className="hidden sm:inline"> to home</span>
-          </a>
+          </Link>
         </div>
       </header>
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
@@ -40,8 +41,8 @@ export default function LegalPage({
         <div className="mx-auto max-w-3xl px-4 py-8 text-center text-xs text-ink-soft sm:px-6">
           © {new Date().getFullYear()} {siteConfig.businessName} ·{" "}
           {siteConfig.trainerName} · {siteConfig.location} · All rights
-          reserved. · <a href="/privacy" className="underline">Privacy policy</a> ·{" "}
-          <a href="/terms" className="underline">Terms &amp; conditions</a>
+          reserved. · <Link href="/privacy" className="underline">Privacy policy</Link> ·{" "}
+          <Link href="/terms" className="underline">Terms &amp; conditions</Link>
         </div>
       </footer>
     </>

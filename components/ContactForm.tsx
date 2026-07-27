@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { siteConfig } from "@/lib/config";
 import SlideToVerify from "./SlideToVerify";
 import Recaptcha from "./Recaptcha";
@@ -54,7 +54,11 @@ export default function ContactForm() {
   const [verified, setVerified] = useState(false); // slide-to-verify fallback
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   // When the form was rendered — used to reject instant (bot) submissions.
-  const mountedAt = useRef(Date.now());
+  // Set in an effect so nothing impure runs during render.
+  const mountedAt = useRef(0);
+  useEffect(() => {
+    mountedAt.current = Date.now();
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

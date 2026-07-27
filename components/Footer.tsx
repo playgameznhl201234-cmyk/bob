@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "./Logo";
 import BrandName from "./BrandName";
 import { siteConfig } from "@/lib/config";
@@ -32,7 +33,7 @@ export default function Footer() {
             </h2>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <a
+                <Link
                   href="/#contact"
                   className="flex items-center gap-3 text-cream/80 transition-colors hover:text-teal"
                 >
@@ -51,7 +52,7 @@ export default function Footer() {
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                   </svg>
                   Send a message
-                </a>
+                </Link>
               </li>
               <li className="flex items-center gap-3 text-cream/80">
                 <svg
@@ -127,12 +128,12 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-cream/80 transition-colors hover:text-teal"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -144,13 +145,13 @@ export default function Footer() {
             © {new Date().getFullYear()} <BrandName tone="light" /> ·{" "}
             {siteConfig.trainerName} · {siteConfig.location} · All rights
             reserved. ·{" "}
-            <a href="/privacy" className="underline hover:text-teal">
+            <Link href="/privacy" className="underline hover:text-teal">
               Privacy
-            </a>{" "}
+            </Link>{" "}
             ·{" "}
-            <a href="/terms" className="underline hover:text-teal">
+            <Link href="/terms" className="underline hover:text-teal">
               Terms
-            </a>
+            </Link>
           </p>
           <p className="mx-auto mt-3 max-w-2xl text-xs leading-relaxed text-cream/45">
             The content on this website is provided for general information

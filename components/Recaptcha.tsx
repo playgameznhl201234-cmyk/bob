@@ -25,7 +25,11 @@ export default function Recaptcha({
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetId = useRef<number | null>(null);
   const onTokenRef = useRef(onToken);
-  onTokenRef.current = onToken;
+
+  // Keep the callback ref current without touching it during render.
+  useEffect(() => {
+    onTokenRef.current = onToken;
+  }, [onToken]);
 
   useEffect(() => {
     let cancelled = false;

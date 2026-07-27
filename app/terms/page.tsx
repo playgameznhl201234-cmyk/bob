@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import LegalPage from "@/components/LegalPage";
 import { siteConfig } from "@/lib/config";
 
@@ -14,8 +15,8 @@ export default function TermsPage() {
   return (
     <LegalPage title="Terms &amp; conditions" updated="July 13, 2026">
       <p>
-        By using this website, you agree to these terms. If you don't agree,
-        please don't use the site. "We", "us", and "our" refer to{" "}
+        By using this website, you agree to these terms. If you don&rsquo;t agree,
+        please don&rsquo;t use the site. &ldquo;We&rdquo;, &ldquo;us&rdquo;, and &ldquo;our&rdquo; refer to{" "}
         <strong>{siteConfig.businessName}</strong> ({siteConfig.trainerName},{" "}
         {siteConfig.location}).
       </p>
@@ -86,7 +87,7 @@ export default function TermsPage() {
       <h2>Contact</h2>
       <p>
         Questions about these terms? Please reach out through the{" "}
-        <a href="/#contact">contact form</a> on our home page.
+        <Link href="/#contact">contact form</Link> on our home page.
       </p>
     </LegalPage>
   );

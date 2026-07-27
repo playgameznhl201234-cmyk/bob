@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import LegalPage from "@/components/LegalPage";
 import { siteConfig } from "@/lib/config";
 
@@ -38,7 +39,7 @@ export default function PrivacyPage() {
         sell, rent, or share your information with anyone for marketing.
       </p>
 
-      <h2>How it's delivered and stored</h2>
+      <h2>How it&rsquo;s delivered and stored</h2>
       <p>
         Form submissions are delivered to our email inbox by{" "}
         <a
@@ -57,7 +58,7 @@ export default function PrivacyPage() {
       <h2>Cookies and embedded content</h2>
       <p>
         This site does not set tracking cookies. Some pages embed videos from
-        Instagram — when those load, Meta (Instagram's parent company) may
+        Instagram — when those load, Meta (Instagram&rsquo;s parent company) may
         collect data and set cookies under{" "}
         <a
           href="https://privacycenter.instagram.com/policy"
@@ -74,8 +75,8 @@ export default function PrivacyPage() {
       <p>
         You can ask what information we hold about you, ask us to correct it,
         or ask us to delete it — just send the request through the{" "}
-        <a href="/#contact">contact form</a> on our home page. We handle
-        personal information in line with Canada's Personal Information
+        <Link href="/#contact">contact form</Link> on our home page. We handle
+        personal information in line with Canada&rsquo;s Personal Information
         Protection and Electronic Documents Act (PIPEDA).
       </p>
 
@@ -94,7 +95,7 @@ export default function PrivacyPage() {
       <h2>Contact</h2>
       <p>
         Questions about this policy? Please reach out through the{" "}
-        <a href="/#contact">contact form</a> on our home page and we’ll get
+        <Link href="/#contact">contact form</Link> on our home page and we’ll get
         back to you.
       </p>
     </LegalPage>

@@ -14,7 +14,7 @@ export default function CtaBanner() {
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-lg leading-relaxed text-cream/90">
             It starts with a free, friendly conversation about where you are
-            and where you'd love to be.
+            and where you&rsquo;d love to be.
           </p>
           <motion.a
             href="#contact"
