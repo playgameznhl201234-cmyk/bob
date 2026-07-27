@@ -1,15 +1,17 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 
 /**
  * A self-hosted result video. Plays inline on the site — no external link,
  * no Instagram dependency, and it can never break if a post is removed.
  *
- * Shows a branded poster with a play button until the visitor starts it,
- * then hands over to the browser's native controls.
+ * The still shown before playback is the <video> element's own `poster`
+ * attribute, which the browser paints natively. (An earlier version layered
+ * a separate <Image> on top; it lazy-loaded unreliably and covered the
+ * video with a blank box.) The overlay here is transparent apart from the
+ * play button, so the poster is always what you see.
  */
 export default function ResultVideo({
   src,
@@ -25,7 +27,6 @@ export default function ResultVideo({
 
   function play() {
     setStarted(true);
-    // Let the state flush so controls are present before playback starts.
     requestAnimationFrame(() => videoRef.current?.play());
   }
 
@@ -39,13 +40,13 @@ export default function ResultVideo({
         playsInline
         preload="metadata"
         aria-label={label}
-        // Hide the download / picture-in-picture items in the browser's own
-        // player menu, and block right-click "Save video as".
+        // Hide download / picture-in-picture in the browser's own player
+        // menu, and block right-click "Save video as".
         controlsList="nodownload noplaybackrate noremoteplayback"
         disablePictureInPicture
         onContextMenu={(e) => e.preventDefault()}
-        // object-contain keeps the whole frame visible — the video is shown
-        // exactly as filmed, never cropped or zoomed.
+        // object-contain keeps the whole frame visible — shown exactly as
+        // filmed, never cropped or zoomed.
         className="h-full w-full object-contain"
         onPlay={() => setStarted(true)}
       />
@@ -58,22 +59,13 @@ export default function ResultVideo({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             aria-label={`Play video: ${label}`}
-            className="absolute inset-0 flex cursor-pointer items-center justify-center bg-brand-ink/15 transition-colors hover:bg-brand-ink/25 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            className="absolute inset-0 flex cursor-pointer items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
           >
-            {poster && (
-              <Image
-                src={poster}
-                alt=""
-                fill
-                sizes="(max-width: 640px) 100vw, 360px"
-                className="-z-10 object-contain"
-              />
-            )}
             <motion.span
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 22 }}
-              className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-brand shadow-lg ring-1 ring-black/5 backdrop-blur"
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-brand shadow-lg ring-1 ring-black/5 backdrop-blur"
             >
               <svg
                 width="26"
