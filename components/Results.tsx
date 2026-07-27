@@ -22,8 +22,21 @@ type ResultClip =
   | { instagram: string; file?: never; poster?: never; label?: never };
 
 const VIDEOS: ResultClip[] = [
-  { instagram: "https://www.instagram.com/p/DYkSHR8P9ws/" },
-  { instagram: "https://www.instagram.com/p/DXmVl1Fj0Oc/" },
+  {
+    file: "/videos/progression.mp4",
+    poster: "/videos/progression.jpg",
+    label: "Before and after: seated good morning, squat, split squat and more",
+  },
+  {
+    file: "/videos/ankle-to-lacrosse.mp4",
+    poster: "/videos/ankle-to-lacrosse.jpg",
+    label: "Client result: from ankle pain to playing lacrosse confidently",
+  },
+  {
+    file: "/videos/youth-athlete.mp4",
+    poster: "/videos/youth-athlete.jpg",
+    label: "A young athlete talks about recovering from wrist pain and getting faster",
+  },
 ];
 
 function toEmbedUrl(url: string) {
