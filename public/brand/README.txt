@@ -1,4 +1,4 @@
-PainFreeDiana — logo files for printing & sharing
+ PainFreeDiana — logo files for printing & sharing
 =================================================
 
 These are the full logo (figure + "PAIN FREE Diana" wordmark), ~1770 x 942 px.
