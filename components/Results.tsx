@@ -6,6 +6,7 @@ import BeforeAfter from "./BeforeAfter";
    embedded playable video below the results grid. Leave empty to hide the
    video row entirely. */
 const INSTAGRAM_VIDEOS: string[] = [
+  "https://www.instagram.com/p/Da9ZUlHPurP/",
   "https://www.instagram.com/p/DYkSHR8P9ws/",
   "https://www.instagram.com/p/DXmVl1Fj0Oc/",
 ];
